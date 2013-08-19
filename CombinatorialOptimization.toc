@@ -1,2 +1,0 @@
-\contentsline {part}{I\hspace {1em}Homework 1}{1}{part.1}
-\contentsline {chapter}{\numberline {I.1}De Morgan's Laws. (Set Theory Case)}{3}{chapter.1.1}
