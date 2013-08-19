@@ -13,7 +13,11 @@
 \usepackage{listings}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
+\usepackage{titlesec}
 
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries}{\thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
 
 \allowdisplaybreaks
 \setlength\parindent{0pt}
@@ -62,14 +66,14 @@
 \normalfont
 \begin{document}
 
-\frontmatter
-\title{Combinatorial Optimization}
-\author{Héctor Manuel Téllez Gómez}
-\date{2013/Aug/16}
-\maketitle
+		\frontmatter
+		\title{Combinatorial Optimization}
+		\author{Héctor Manuel Téllez Gómez}
+		\date{2013/Aug/16}
+		\maketitle
 
-\tableofcontents
+		\tableofcontents
 
-\mainmatter
+		\mainmatter
     \input{Homework1/Homework1.tex}
 \end{document}
