@@ -1,0 +1,32 @@
+﻿\chapter{Adjacency Matrix Of Bipartite Graphs Are Unimodular}
+
+\prob{
+    Let $G = (V, E)$ be a bipartite graph. And let $M$ be its adjacency matrix.
+    Prove that if $A$ is a square submatrix of $M$ then $det(A) \in \{0, -1, 1\}$.
+}
+
+\begin{proof}
+    The prove will use induction over the dimension $n$ of $A$.\pn
+
+    If $n = 1$, there is nothing to prove given that every entry is $0$ or $1$, its determinat
+    will be $0$ or $1$ respectively.\pn
+
+    Now suppose that the result is true for a given $n \geq 1$ and let $A$ be a $(n+1) \times (n+1)$
+    submatrix of $M$.\pn
+
+    If $A$ contains a column with only $0$'s, its determinant will be $0$ given that such column
+    will be linearly dependent of the rest.\pn
+
+    If $A$ contains a column with only one $1$ (lets say that this $1$ is the entry $(i,j)$)
+    its determinant will be $-det(A_{i,j})$ or $det(A_{i,j})$. Appling induction over $A_{i,j}$
+    we have that $det(A) \in \{0, -1, 1\}$.\pn
+
+    Now lets suppose that every column have exactly two $1$'s. Given that the graph is bipartite, 
+    lets say that a bipartition of the vertices is given by $V_1$ and $V_2$. We can now, rearrange
+    the rows of $A$ in such way that the first $k$ rows are rows of vertices in $V_1$ and the last
+    $n+1-k$ rows are rows of vertices in $V_2$. Each column has exactly one $1$ in the first $k$ rows
+    and its second $1$ in the last $n+1-k$ rows. This means that the sum of the first $k$ rows is
+    the row vector $(1, 1, \dots, 1)$ and the same for the sum of the last $n+1-k$ rows. Given that
+    we can generate the same vector in more than one way where the scalars used are not all zero,
+    we have the rows of $A$ are linearly dependent and then $det(A) = 0$.
+\end{proof}
