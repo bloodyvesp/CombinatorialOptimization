@@ -1,0 +1,43 @@
+﻿\chapter{De Morgan's Laws. (Set Theory Case)}
+    \prob{
+        Given a set $\Omega$, and subsets $A, B \subset \Omega$, prove that
+        \begin{align}
+             (A \cap B)^c &=  A^c \cup B^c \label{p:de_morgan_first}\\
+                \intertext{\center{and}}
+             (A \cup B)^c &=  A^c \cap B^c \label{p:de_morgan_second}\\                     
+        \end{align}
+    }
+    
+    \begin{proof}
+        We are going to start with \eqref{p:de_morgan_first}.\pn
+        
+        First, lets see that $(A \cap B)^c \subset  A^c \cup B^c$. So let $x \in (A \cap B)^c$. That means,
+        $x \notin A \cap B$.\pn
+        
+        As $A \cap  B = \{ y \in \Omega : y \in A \text{ and } y \in B \}$ it follows that
+        $x \notin A$ or $x \notin B$. That is $x \in A^c$ or $x \in B^c$, which is $x \in A^c \cup B^c$ and then
+        we have $(A \cap B)^c \subset  A^c \cup B^c$.\pn
+        
+        Now, let $x \in A^c \cup B^c$.\pn 
+        
+        Suppose that $x \notin \paren{A \cap B}^c$. That is, $x \in A \cap B$. Then $x \in A$ and $x \in B$. So
+        $x \notin A^c$ and $x \notin B^c$. Which contradicts that $x \in A^c \cup B^c$.\pn
+        
+        Now lets prove \eqref{p:de_morgan_second}. We are going to use the fact that for any $C \subset \Omega$,
+        it happens that $(C^c)^c = C$.\pn
+        
+        \begin{align}
+            \paren{A^c \cap B^c}^c  &=  (A^c)^c \cup (B^c)^c                                    \\
+                                    &\comment{Here we applied \eqref{p:de_morgan_first}}        \\
+                                    &=  A \cup B                                                \\
+                                    &\comment{Here we applied the fact previously mentioned}.   \\
+        \end{align}\pn
+        
+        So, appling one more time the mentioned fact, we have
+        
+        \begin{align}
+            \paren{A^c \cap B^c}    &=  \paren{\paren{A^c \cap B^c}^c}^c        \\
+                                    &=  \paren{A \cup B}^c. \;\;\;\;\qedhere
+        \end{align}
+        
+    \end{proof}

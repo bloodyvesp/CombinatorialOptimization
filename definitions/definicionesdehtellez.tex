@@ -11,27 +11,21 @@
 \newcommand{\lcomment}[1]{\;\;\;\;\mbox{{\scriptsize(#1}}}
 \newcommand{\rcomment}[1]{\;\;\;\;\mbox{{\scriptsize\;\;#1)}}}
 \newcommand{\F}{\mathscr{F}}
-
+\newcommand{\paren}[1]{\ensuremath{\left(#1\right)}}
 \newcommand{\indic}{\mathds{1}}
 \newcommand{\pn}{\par\null}
 
 \newcommand{\textme}[1]{\;\text{#1}\;}
 
-\newcommand{\nqed}{
-	\null
-	\null
-	\null
-	\null	
+\newcommand{\afterproblem}{
 	\begin{center}
-		\textbf{.\_\_\_...\_.\_\_\_.\_.\_.\_\_.\_\_\_\_.\_\_..\_....\_......\_\_..\_.\_.\_\_\_..\_..\_\_....\_.\_\_\_.\_....\_......\_\_..\_..}
-	\end{center}
-	\newpage
-}
-
-\newcommand{\afterstatement}{
-	\par	
-	\begin{center}
-		\textbf{----------------------------------------- . -----------------------------------------}
+		\textbf{--- . ---}
 	\end{center}
     \par
+}
+
+\newcommand{\prob}[1]
+{
+        \problem{#1}
+        \afterproblem
 }
