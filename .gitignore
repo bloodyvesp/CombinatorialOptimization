@@ -40,3 +40,5 @@ _ReSharper*/
 *.tps
 *.pdf
 *.toc
+*.dvi
+*.out
