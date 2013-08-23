@@ -29,12 +29,12 @@
     
     So, $\paren{A^\perp \vee B^\perp} \subset (A \wedge B)^\perp$, as we wanted.\pn
     
-    Before continuing, lets make clear that $A^\perp \subset (A \wedge B)^\perp$. $A^\perp = \{ v \in V : v \cdot x = 0 \;\;\;\; \forall x \in A \}$. 
-    Particularly if $A' \subset A$ and $v \in A^\perp$ we have that $v \cdot x = 0$ for all $x \in A'$. Given that $\paren{A \wedge B} \subset A$, 
-    we have that $A^\perp \subset (A \wedge B)^\perp$.\pn
-        
-    Now we want to show that $(A \wedge B)^\perp \subset \paren{A^\perp \vee B^\perp}$. Suppose that $x \notin \paren{A^\perp \vee B^\perp}$. Particularly, 
-    $x \notin A^\perp$. But we showed before that $A^\perp \subset (A \cap B)^\perp$, so we conclude that $x \notin (A \cap B)^\perp$.\pn
+		Now we want to show that $(A \wedge B)^\perp \subset \paren{A^\perp \vee B^\perp}$. It is sufficient to 
+		prove that $ \paren{A^\perp \vee B^\perp}^\perp \subset (A \wedge B)$. So, let $x \notin \paren{ A\wedge B }$.	 So $x \notin A$ or $x \notin B$. Without loss of generality suppose that $x \notin A$, so there should be
+		$a' \in A^\perp$ such that $x \cdot a' \neq 0$. Now, $a' \in A^\perp \subset \paren{A^\perp \vee B^\perp}$,
+		which means that there is an element in $\paren{A^\perp \vee B^\perp}$ that is not orthogonal to $x$. So
+		$x \notin \paren{A^\perp \vee B^\perp}^\perp$.\pn
+		
     
     For \eqref{p:orthogonal_de_morgan_second} we are going to use the fact that if $C \subset V$ is a vector subspace then
     $(C^\perp)^\perp = C$ (this holds whenever $V$ is a closed vector space, in particular, when $V$ is finite dimensional).
