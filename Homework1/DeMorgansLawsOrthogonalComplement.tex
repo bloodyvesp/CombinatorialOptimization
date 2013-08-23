@@ -20,22 +20,12 @@
     $A^\perp = \{ v \in V : v \cdot x = 0 \;\;\;\; \forall x \in A \}$. Particularly if $A' \subset A$ and $v \in A^\perp$
     we have that $v \cdot x = 0$ for all $x \in A'$. Given that $A \wedge B \subset A$, we have that $A^\perp \subset (A \wedge B)^\perp$.\pn
     
-    The same argument proves that $B^\perp \subset (A \wedge B)^\perp$. Given that $(A \wedge B)^\perp$ is a vector space,
-    it contains every linear combination of the type $\lambda_1 x + \lambda_2 y$ for $\lambda_1, \lambda_2 \in \F$, $x \in A^\perp$ and
-    $y \in B^\perp$. Which means $A^\perp \vee B^\perp \subset (A \wedge B)^\perp$.\pn
+    The same argument proves that $B^\perp \subset (A \wedge B)^\perp$. Given that $A^\perp \vee B^\perp$ is a vector space,
+    it contains every linear combination of the type $\lambda_1 a' + \lambda_2 b'$ for $\lambda_1, \lambda_2 \in \F$, $a' \in A^\perp$ and
+    $b' \in B^\perp$. Which means $A^\perp \vee B^\perp \subset (A \wedge B)^\perp$.\pn
     
-    Now we want to show that $(A \wedge B)^\perp \subset A^\perp \vee B^\perp$. Which is equivalent to prove that 
-    $\paren{A^\perp \vee B^\perp}^{\perp} \subset (A \wedge B)$. Suppose that $x \notin \paren{A^\perp \vee B^\perp}^{\perp}$, 
-    this means that there are $a' \in A^\perp$, $b' \in B^\perp$ and $\lambda_1, \lambda_2 \in \F$ such that
-    
-    \begin{align}
-        0   &\neq   x \cdot (\lambda_1 a' + \lambda_2 b')           \\
-            &=      \lambda_1 (x \cdot a') + \lambda_2 (x \cdot b').
-    \end{align}\pn
-    
-    So, it should happen that $\lambda_1 (x \cdot a') \neq 0$ or $\lambda_2 (x \cdot b') \neq 0$. Without loss of generality Suppose that
-    $\lambda_1 (x \cdot a') \neq 0$, which implies that $x \cdot a' \neq 0$. But $a' \in A^\perp$ which means that $y \cdot a' = 0$ for
-    every $y \in A$. So we conclude that $x \notin A$ and then $x \notin A \cap B$.\pn
+    Now we want to show that $(A \wedge B)^\perp \subset A^\perp \vee B^\perp$. Suppose that $x \notin A^\perp \vee B^\perp$. Particularly, 
+    $x \notin A^\perp$. But we showed before that $A^\perp \subset (A \cap B)^\perp$, so we conclude that $x \notin (A \cap B)^\perp$.\pn
     
     For \eqref{p:orthogonal_de_morgan_second} we are going to use the fact that if $C \subset V$ is a vector subspace then
     $(C^\perp)^\perp = C$.
