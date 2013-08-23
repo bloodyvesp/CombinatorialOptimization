@@ -5,30 +5,39 @@
     Let $A, B \subset V$ be vector subspaces. Prove that
     
     \begin{align}
-            (A \wedge B)^\perp &=  A^\perp \vee B^\perp \label{p:orthogonal_de_morgan_first}\\
+            (A \wedge B)^\perp  &=  \paren{A^\perp \vee B^\perp} \label{p:orthogonal_de_morgan_first}\\
             \intertext{\center{and}}
-            (A \vee B)^\perp &=  A^\perp \wedge B^\perp \label{p:orthogonal_de_morgan_second}\\ 
+            (A \vee B)^\perp    &=  \paren{A^\perp \wedge B^\perp} \label{p:orthogonal_de_morgan_second}\\ 
     \end{align}
 }
 
 \begin{proof}
     We are going to start with \eqref{p:orthogonal_de_morgan_first}.\pn
     
-    First, let see that $A^\perp \vee B^\perp \subset (A \wedge B)^\perp$. But, before, lets make clear that
-    $A^\perp \subset (A \wedge B)^\perp$.\pn
+    First, let see that $\paren{A^\perp \vee B^\perp} \subset (A \wedge B)^\perp$.\pn
     
-    $A^\perp = \{ v \in V : v \cdot x = 0 \;\;\;\; \forall x \in A \}$. Particularly if $A' \subset A$ and $v \in A^\perp$
-    we have that $v \cdot x = 0$ for all $x \in A'$. Given that $A \wedge B \subset A$, we have that $A^\perp \subset (A \wedge B)^\perp$.\pn
+    Let be $a' \in A^\perp$, $b' \in B^\perp$ and $\lambda_1,\lambda_2 \in \F$. So $\paren{\lambda_1 a' + \lambda_2 b'} \in \paren{A^\perp \vee B^\perp}$. 
+    And let be $c \in \paren{A \cap B}$. We have that\pn
     
-    The same argument proves that $B^\perp \subset (A \wedge B)^\perp$. Given that $A^\perp \vee B^\perp$ is a vector space,
-    it contains every linear combination of the type $\lambda_1 a' + \lambda_2 b'$ for $\lambda_1, \lambda_2 \in \F$, $a' \in A^\perp$ and
-    $b' \in B^\perp$. Which means $A^\perp \vee B^\perp \subset (A \wedge B)^\perp$.\pn
+    \begin{align}
+            c \cdot (\lambda_1 a' + \lambda_2 b')   &=  \lambda_1 c \cdot a' + \lambda_2 c \cdot b'     \\
+                                                    &=  0   +   \lambda_2 c \cdot b'                    \\
+                                                    &\comment{because $c \in A$ and $a' \in A^\perp$}   \\
+                                                    &=  0   +   0                                       \\
+                                                    &\comment{because $c \in B$ and $a' \in B^\perp$}.   \\
+    \end{align}\pn
     
+    So, $\paren{A^\perp \vee B^\perp} \subset (A \wedge B)^\perp$, as we wanted.\pn
+    
+    Before continuing, lets make clear that $A^\perp \subset (A \wedge B)^\perp$. $A^\perp = \{ v \in V : v \cdot x = 0 \;\;\;\; \forall x \in A \}$. 
+    Particularly if $A' \subset A$ and $v \in A^\perp$ we have that $v \cdot x = 0$ for all $x \in A'$. Given that $\paren{A \wedge B} \subset A$, 
+    we have that $A^\perp \subset (A \wedge B)^\perp$.\pn
+        
     Now we want to show that $(A \wedge B)^\perp \subset A^\perp \vee B^\perp$. Suppose that $x \notin A^\perp \vee B^\perp$. Particularly, 
     $x \notin A^\perp$. But we showed before that $A^\perp \subset (A \cap B)^\perp$, so we conclude that $x \notin (A \cap B)^\perp$.\pn
     
     For \eqref{p:orthogonal_de_morgan_second} we are going to use the fact that if $C \subset V$ is a vector subspace then
-    $(C^\perp)^\perp = C$.
+    $(C^\perp)^\perp = C$ (this holds whenever $V$ is a closed vector space, in particular, when $V$ is finite dimensional).
     
     \begin{align}
         (A^\perp \wedge B^\perp)^\perp  &=  (A^\perp)^\perp \vee (B^\perp)^\perp                            \\
