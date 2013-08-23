@@ -1,7 +1,7 @@
 ﻿\chapter{De Morgan's Laws. (Finite Dimention Vector Spaces Case)}
 
 \prob{
-    Let $V$ be a vector space over a field $\F$ with finite dimension. 
+    Let $V$ be a vector space over a field $\F$ of finite dimension. 
     Let $A, B \subset V$ be vector subspaces. Prove that
     
     \begin{align}
@@ -24,7 +24,18 @@
     it contains every linear combination of the type $\lambda_1 x + \lambda_2 y$ for $\lambda_1, \lambda_2 \in \F$, $x \in A^\perp$ and
     $y \in B^\perp$. Which means $A^\perp \vee B^\perp \subset (A \wedge B)^\perp$.\pn
     
-    [INCOMPLETE]\pn
+    Now we want to show that $(A \wedge B)^\perp \subset A^\perp \vee B^\perp$. Which is equivalent to prove that 
+    $\paren{A^\perp \vee B^\perp}^{\perp} \subset (A \wedge B)$. Suppose that $x \notin \paren{A^\perp \vee B^\perp}^{\perp}$, 
+    this means that there are $a' \in A^\perp$, $b' \in B^\perp$ and $\lambda_1, \lambda_2 \in \F$ such that
+    
+    \begin{align}
+        0   &\neq   x \cdot (\lambda_1 a' + \lambda_2 b')           \\
+            &=      \lambda_1 (x \cdot a') + \lambda_2 (x \cdot b').
+    \end{align}\pn
+    
+    So, it should happen that $\lambda_1 (x \cdot a') \neq 0$ or $\lambda_2 (x \cdot b') \neq 0$. Without loss of generality Suppose that
+    $\lambda_1 (x \cdot a') \neq 0$, which implies that $x \cdot a' \neq 0$. But $a' \in A^\perp$ which means that $y \cdot a' = 0$ for
+    every $y \in A$. So we conclude that $x \notin A$ and then $x \notin A \cap B$.\pn
     
     For \eqref{p:orthogonal_de_morgan_second} we are going to use the fact that if $C \subset V$ is a vector subspace then
     $(C^\perp)^\perp = C$.
@@ -33,7 +44,7 @@
         (A^\perp \wedge B^\perp)^\perp  &=  (A^\perp)^\perp \vee (B^\perp)^\perp                            \\
                                         &\comment{Here we used \eqref{p:orthogonal_de_morgan_first}}        \\
                                         &=  A \vee B                                                        \\
-                                        &\comment{Because of the previously mentioned fact, we conclude}.
+                                        &\comment{Because of the previously mentioned fact}.
     \end{align}\pn
     
     Using the mentioned fact again, we obtain
