@@ -9,7 +9,7 @@
     \begin{proof}
         Lets remember what Frobenius' theorem says. It says that if $M$ is an $n \times n$ matrix with only $ones$ and $zeros$, then neither,
         $M$ contains a permutation matrix (other way to say it is that there exists a permutation $\sigma \in S_n$ such that $M_{i, \sigma(i)} = 1$ 
-        for each $i$) or it has a $s \times t$ zero submatrix such that $s + t > n$.\pn
+        for each $i$) or it has a $s \times t$ zero submatrix such that $n < s + t$.\pn
         
         Now, lets find the connection between these two theorems. We can represent a bipartite graph such as the one mentioned in Hall's theorem by 
         a $n \times n$ matrix $M$, in which each row will represent a vertex in $V_1$ and each column a vertex in $V_2$, and, if vertex $i \in V_1$ and 
@@ -18,9 +18,17 @@
         Given this representation, a matching in $G$ will look as a matrix in which each column and each row have exactly one $1$, and that is,
         a permutation matrix. So Frobenius' theorem will give us the answer.\pn
         
+        Let $G$ be a finite bipartite graph as the one stated in Hall's theorem and $M$ be its representation in a $zero-one$ matrix.\pn
+        
         If $G$ doesn't contain a matching, that is, $M$ doesn't contain a permutation matrix. Then, Frobenius' theorem says that there is 
-        a $s \times t$ zero submatrix such that $s + t > n$. Now lets think in the $s$ rows of $M$ that will be part of such zero submatrix.
+        a $s \times t$ zero submatrix such that $n < s + t$. Now lets think in the $s$ rows of $M$ that will be part of such zero submatrix.
         This $s$ rows will have only $0$'s in the $t$ columns that correspond to the columns of the zero submatrix. This means that the $s$ vertex that
-        those rows represent only can have $n - t$ neighbors. But the inequallity $s + t > n$, also says that $s > n - t$. So we have a
-        set of $s$ vertices such that the amount of their neighbors is less than $s$. And with this we have proved Hall's theorem.        
+        those rows represent only can have $n - t$ neighbors. But the inequallity $n < s + t$, also says that $n - t < s$. So we have a
+        set of $s$ vertices such that the amount of their neighbors is less than $s$.\pn
+        
+        Conversly, if $G$ is such that there is a set of $s$ vertex such that they have only $r$ neighbors and $r < s$, then, there are $n - r$
+        vertices such that none of these $s$ vertices are neighbors with. In its matrix representation $M$, this will give us $s$ rows and $n - r$
+        columns such that their intersections have only $0$'s. These rows and columns will give us a $s \times (n - r)$ zero submatrix in $M$, and
+        given that $0 < s - r$, we have that $n < (n - r) + s$, then Frobenius' theorem says that there cannot be a permutation matrix contained in 
+        $M$, that is, there cannot be a perfect matching in $G$. And with these we have proved Hall's theorem.
     \end{proof}
