@@ -1,0 +1,72 @@
+﻿\chapter{Petersen's Graph Is Not Hamiltonian}
+
+    \begin{theorem}
+        Prove that Petersen's graph is not hamiltonian.
+    \end{theorem}
+    
+    \begin{proof}
+        Let's remember that a \textbf{hamiltonian graph} is a graph that contains a \textbf{hamiltonian cycle} and a hamiltonian cycle is
+        a cycle that contains all the vertices.\pn
+        
+        Now, lets remember what is the Petersen's graph. The Petersen's graph has the following graphic representation:
+        \begin{center}
+            \includegraphics[width=7cm]{PetersenIsNotHamiltonian/Petersen1.png}    
+        \end{center}\pn
+        
+        Notice that Petersen's graph is \textbf{cubic}, that is, each vertex is of degree three.\pn 
+
+        Notice that any cubic graph must have an even number of vertices, because, if we call $n$ to the number of vertices, 
+        the number of edges must be $\frac{3n}{2}$, since this number is integer, $n$ must be even.\pn
+        
+        Now, lets construct a very useful tool to determine if a cubic graph could be hamiltonian.\pn 
+        
+        Let $G = (V, E)$ be any graph, a \textbf{$k$-edge-colouring} is a suprayective function $f : E \longrightarrow \{1, 2, \dots, k\}$, 
+        were $\{1, 2, \dots, k\}$ is our colors set. A \textbf{proper $k$-edge-colouring} is a $k$-edge-colouring such that each edge has a 
+        different color from any of its adjacent edges.\pn
+               
+        For example, any even cycle has a proper 2-edge-colouring, to see this, simply choose any edge and give it the first color, 
+        then choose any of its two adjacent edges and give it the second, then choose the next edge and give it the first color, and 
+        repeat this procedure until you reach the first edge you chose.\pn
+            
+        Lets suppose that $G$ is a cubic hamiltonian graph and lets call $C$ any of its hamiltonian cycles. Since $C$ contains every 
+        vertex of $G$ and $G$ has an even number of vertices, then $C$ is an even cycle, so it has a proper 2-edge-colouring. Since 
+        $G$ is cubic, any two edges that are not contained in $C$ must be non-adjacent, since the opposite will give us a vertex of
+        degree at least four and this can not happen. Give a third color to every edge of $G$ that is not contained in $C$ and then
+        we get a proper 3-edge-colouring.\pn
+        
+        What we have is that if a graph is cubic and hamiltonian, then it has a proper 3-edge-colouring. We are going to show that
+        Petersen's graph can not be hamiltonian since it doesn't have a proper 3-edge-colouring.\pn
+        
+        Lets try to give a proper 3-edge-colouring to Petersen's graph. Lets look at the 5-cycle that is in the ``outside'' of 
+        the graphic representation of Petersen's graph. This cycle must have three colors since it is odd, and any color must has, at most,
+        two edges (since any subset of three edges has at least two adjacent edges). This says that any proper 3-edge-colouring of
+        this 5-cycle has two edges of one color, two edges of a second color, and only one edge of a third color. Lets say it has
+        two ``blue'' edges, two ``red'' edges and one ``green'' edge. Because of the symmetries of Petersen's graph, it doesn't matter
+        how we set this colors in its ``exterior'' 5-cycle. So, lets say that the following picture represent any of these:
+        \begin{center}
+            \includegraphics[width=7cm]{PetersenIsNotHamiltonian/Petersen2.png}    
+        \end{center}\pn
+        
+        Now, notice that if two of the edges of a given vertex already have a color, then the color of the third one is determined.
+        Applying this, we can color as follows:
+        \begin{center}
+            \includegraphics[width=7cm]{PetersenIsNotHamiltonian/Petersen3.png}    
+        \end{center}\pn
+        
+        Now, notice that if an edge is such that both of its vertices have edges with different colors, then the color of this edge
+        is already determined. Lets color one edge following this.
+        \begin{center}
+            \includegraphics[width=7cm]{PetersenIsNotHamiltonian/Petersen4.png}    
+        \end{center}\pn
+        
+        One of the vertices circled with orange already had a green edge, and the other one already had a red edge, that lets the edge that joins these
+        vertices no choice but to be blue colored. Now, look at the edge circled with orange in the next picture:
+        \begin{center}
+            \includegraphics[width=7cm]{PetersenIsNotHamiltonian/Petersen5.png}    
+        \end{center}\pn
+        
+        It also has a vertex with an already green colored edge and another one with an already red colored edge, so it must be blue also,
+        but one of its vertices already had a blue colored edge too. So, our colouring for the ``exterior'' 5-cycle cannot be chosen
+        that way, since it lead us to this colouring issue. But it doesn't matter what colouring we choose for this 5-cycle, all of them
+        will be basically the same (up to symmetry), and therefore, Petersen's graph cannot be hamiltonian.    
+    \end{proof}
