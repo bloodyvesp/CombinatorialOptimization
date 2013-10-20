@@ -1,8 +1,8 @@
-﻿\chapter{Hall's Theorem}
+﻿\chapter{Inequality}
 
     \begin{theorem}
         Let be $0 \leq p \leq s \leq t \leq q$ real numbers such that
-        \begin{align}\label{inqeuality_1}
+        \begin{align}\label{inequality_1}
             p + q = s + t.
         \end{align}
         
@@ -38,21 +38,27 @@
         And then, it follows that $qp = pq \leq st$.
     \end{proof}
     
-    Here, we are going to give a second proof.
+    We are going to give a \textbf{second proof}, which I consider simpler, shorter and easier to remember.
     
     \begin{proof}
-        Let call $c = p + q = s + t$ and then let define $f(x) = x(c-x)$ over $[0, c/2]$.\pn
+        Lets call $c = p + q = s + t$ and then lets define $f(x) = x(c-x)$ over $[0, c/2]$.\pn
         
         Notice that $f(p) = p(c-p) = pq$ and $f(s) = s(c-s) = st$.\pn
             
         What we are asked to prove is that $f(p) \leq f(s)$.\pn
         
-        So, lets analice $f$ using simple calculus.\pn
+        So, lets analice $f$ using simple calculus. First of all, $f$ is a polinomial, and then its continuous. Now
+        lets check what we can learn from its derivative\pn
         
         \begin{align}
             f'(x) = c-2x.
-        \end{align}
+        \end{align}\pn
         
-        This is positive in $[0, c/2]$. So what we have is an strictly incresing function, and as $p \leq s$, we have 
-        $pq = p(c-p) = f(p) \leq f(s) = s(c-s) = st$, as we wished to prove. 
+        So $f$'s derivative is positive over $(0, c/2)$. So what we have is an incresing function over $[0, c/2]$ 
+        (because it is continuous and with positive derivative).\pn 
+        
+        As $p \leq s$, we have $f(p) \leq f(s)$, as we wished to prove. 
     \end{proof}
+    
+        This has thought us that the product of two numbers such that its sum is constant, is greater as they are more
+        ``alike''.
