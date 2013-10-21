@@ -1,0 +1,44 @@
+﻿\chapter{Complementary Vector Spaces (1)}
+    The order of the following two excercises has been changed because the second one is
+    a very particular case of this one, so it is convenient to solve this one first.
+
+    \begin{theorem}
+        Let $A$ be a $m \times n$ real matrix with linearly independent rows.
+        Lets define $H = \{x \in \R^n | Ax^T = 0 \}$ and 
+        $L = \{ y \in \R^n | y = \lambda A, \; \lambda \in \R^m\}$.\pn
+        
+        Prove that $H$ and $L$ are orthogonal complements of each other.
+    \end{theorem}
+    
+    \begin{proof}
+        What we need to proove is that $H = L^\perp$.\pn
+        
+        It is easy to see that $H \subset L^\perp$ given that if $x \in H$ and $y \in L$, then
+        there is some $\lambda \in \R^m$ such that $y = \lambda A$ and
+        
+        \begin{align}
+                yx^T    &=  (\lambda A) x^T \\
+                        &=  \lambda (A x^T) \\
+                        &=  \lambda (0^T)   \\
+                        &=  0.
+        \end{align}\pn
+        
+        Now lets suppose that $z \in L^\perp$, we would like to prove that $A z^T = 0$, and therefore,
+        $z \in H$.\pn
+        
+        So, given that $z \in L^\perp$, then, for every $y \in L$ we have
+        \begin{align}
+                    yz^T = 0.
+        \end{align}\pn
+        
+        But, every $y \in L$ can be written as $y = \lambda A$ with $\lambda \in \R^m$. So, 
+        for every $\lambda \in \R^m$ we have 
+        
+        \begin{align}
+                \lambda A z^T   = 0.
+        \end{align}
+        
+        Now, $A z^T \in \R^m$, and it is such that it is orthogonal with every other vector 
+        $\lambda \in \R^m$. And there is only one vector with such property and that is the
+        zero vector of $\R^m$. Then, given that $A z^T = 0$, $z \in H$, as we wished to proove.
+    \end{proof}
