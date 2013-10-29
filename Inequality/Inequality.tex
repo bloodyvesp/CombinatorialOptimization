@@ -1,2 +1,64 @@
-﻿\chapter{Inequality}  
-    \input{Inequality/InequalityAnswer.tex}
+﻿\chapter{Inequality}
+
+    \prob{
+        Let be $0 \leq p \leq s \leq t \leq q$ real numbers such that
+        \begin{align}\label{inequality_1}
+            p + q = s + t.
+        \end{align}
+        
+        Prove that $pq < st$.
+    }
+    
+    \begin{proof}
+        Just a lot of simple algebra.
+        
+        \begin{align}
+            p + q               &=      s + t                   \\
+            (p + q)^2           &=      (s + t)^2               \\
+            p^2 + 2pq + q^2     &=      s^2 + 2st + t^2         \\
+        \end{align}
+        
+        From \eqref{inequality_1} we can obtain $p = s + t - q$. So
+        $p^2 = st - sq - tq + s^2 + t^2 + q^2$. So, our last equation can
+        be rewritten as:
+        
+        \begin{align}
+            st - sq - tq + s^2 + t^2 + q^2 + 2pq + q^2      &=      s^2 + 2st + t^2         \\         
+            st - sq - tq + s^2 + t^2 + 2pq + 2q^2           &=      s^2 + 2st + t^2         \\         
+            st - sq - tq + 2pq + 2q^2                       &=      2st                     \\         
+            - sq - tq + 2pq + 2q^2                          &=      st                      \\         
+            q (- s - t + 2p + 2q)                           &=      st                      \\         
+            q (2p + 2q - (s + t))                           &=      st                      \\         
+            q ((p + q) + (p + q) - (s + t))                 &=      st                      \\         
+            q (p + q)                                       &=      st                      \\
+            \comment{here we applied our hipothesis}        &                               \\                    
+            qp + q^2                                        &=      st                      \\
+        \end{align}
+        
+        And then, it follows that $qp = pq \leq st$.
+    \end{proof}
+    
+    We are going to give a \textbf{second proof}, which I consider simpler, shorter and easier to remember.
+    
+    \begin{proof}
+        Lets call $c = p + q = s + t$ and then lets define $f(x) = x(c-x)$ over $[0, c/2]$.\pn
+        
+        Notice that $f(p) = p(c-p) = pq$ and $f(s) = s(c-s) = st$.\pn
+            
+        What we are asked to prove is that $f(p) \leq f(s)$.\pn
+        
+        So, lets analyze $f$ using simple calculus. First of all, $f$ is a polinomial, and then its continuous. Now
+        lets check what we can learn from its derivative\pn
+        
+        \begin{align}
+            f'(x) = c-2x.
+        \end{align}\pn
+        
+        So $f$'s derivative is positive over $(0, c/2)$. So what we have is an incresing function over $[0, c/2]$ 
+        (because it is continuous and with positive derivative).\pn 
+        
+        As $p \leq s$, we have $f(p) \leq f(s)$, as we wished to prove. 
+    \end{proof}
+    
+        This has thought us that the product of two numbers such that its sum is constant, is greater as they are more
+        ``alike''.
