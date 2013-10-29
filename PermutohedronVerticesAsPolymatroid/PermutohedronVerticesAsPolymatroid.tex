@@ -1,0 +1,75 @@
+﻿\chapter{Permutohedron Vertices As Polymatroid}
+
+    \prob{
+        The permutohedron of dimension $n-1$ is defined as follows.\pn
+        
+        Lets call $E = \{1, 2, \dots, n\}$. Lets be $(x_1, x_2, \dots, x_n) \in \R^n$ an entry in $\R^n$.
+        For $S \subset E$, $x(S) = \sum_{i \in S} x_i$. The permutohedron of dimension $n-1$ is the polytope
+        defined by the following linear bounds.
+        \begin{align}
+                x(S)    &= 1 + 2 + \dots + n                &\text{if \; $S = E$}\\
+                x(S)    &\leq (k+1) + (k+2) + \dots + n     &\text{if $S \neq E$, where $ k = n - |S|$}\\
+                x_i     &\geq 0                             &\text{for $1 \leq i \leq n$}.        
+        \end{align}
+        
+        The polymatroid associated with a permutohedron is the one obtained from converting the first equality
+        in a $\leq$ inequality. That is, the polytope given by
+        \begin{align}
+                x(S)    &\leq (k+1) + (k+2) + \dots + n     &\text{where $ k = n - |S|$}\\       
+                x_i     &\geq 0                             &\text{for $1 \leq i \leq n$}.        
+        \end{align}
+        
+        What are the vertices of this polymatroid and how are these associated with a matroid?
+    }
+    
+    \begin{proof}
+        Lets find the vertices. We are going to give the vertices by finding $n$ equalities given by the inequalities system.\pn
+        
+        First, notice that $(0, 0, \dots, 0)$ is a vertex, given that it satisfaces the $n$ equalities with the form 
+        \begin{align}
+                x_i     &= 0                                &\text{for $1 \leq i \leq n$}.
+        \end{align}
+        
+        We are going to procede loosening one of this equalities, increasing the loose $x_i$ until it meets another equality. For example,
+        we loosen the equality $x_1 = 0$, and we increase $x_1$ until it meets some other equality. The first equality that it meets is
+        $x_i = n$ (which comes from the equality $x_i \leq n$). So now we have that the vertex $(n, 0, \dots, 0)$ is a vertex of our
+        polymatroid.\pn
+        
+        Now, we loosen some other equality and increase the corresponding $x_i$ until it meets some other equality. From our example, lets say, 
+        we loosen $x_2 = 0$, and we increase $x_2$ until it meets some other equality. The first equality that it meets is $x_1 + x_2 = (n-1) + n$
+        (whice comes from the inequality $x_1 + x_2 \leq (n-1) + n$). So now he have that the vertex $(n, n-1, 0, \dots, 0)$ is a vertex of our
+        polymatroid.\pn
+        
+        We proceed the same way with all the other $n-2$ equalities. Then we notice that the order we choose is irrelevant and in the $m$ step, we
+        have a vertex with $m-1$ non-zero entries, and even more, the non-zero entries are exactly the $m-1$ largest values from $\{1, 2, \dots, n\}$.\pn
+        
+        So, now we know which are the vertices of our polymatroid and with this procedure, we can even count how many of them are.
+        There is only one vertex with all of its entries equal to zero. Then, we have $n$, vertices with only one non-zero entry (and the value of its non-zero
+        entry is exactly $n$). Then, we have $\binom{n}{2} 2!$ vertices with two non-zero entries (and the value of its non-zero entries are $n$ and $n-1$), 
+        the $\binom{n}{2}$ counts the ways we can choose the non-zero entries, and the $2!$ counts the way we can asing their values. In the general case,
+        we have $\binom{n}{m} m!$ vertices with exactly $m$ non-zero entries (and the valueof its non-zero entries are $n, n-1, \dots, n-m+1$).\pn
+        
+        So, in the end we have
+        \begin{align}
+                \sum_{m = 0}^n \binom{n}{m} m!
+        \end{align}
+        
+        vertices for the polymatroid.\pn
+        
+        Other way to count them could be, counting what is the loose $x_i$ in each step. Lets say, in the first step we don't loosen any equality, so 
+        we have only one vertex there. In the second step, we choose one of the $n$ zero-equalities to be loose and its corresponding variable will get the value $n$, 
+        so there we have another $n = \frac{n!}{(n-1)!}$ vertices. In the third step, we choose one of the $n-1$ zero-equalities to be loose and its corresponding
+        variable will get the value $n-1$, so there we have another $n (n-1) = \frac{n!}{(n-2)!}$ vertices. In the general step, we have to choose one of the $n-m$ 
+        equalities to be loose and its corresponding variable will get the value $n-m$, and there we will get another $n (n-1) \cdots (n-m)$ and this will repeat 
+        until $m = n-1$ (when we have to choose the only remaining zero-equality to be loosen and its corresponding variable will get the value $1$).\pn
+        
+        So, in the end we have
+        \begin{align}
+                \sum_{m = 0}^{n} \frac{n!}{(n-m)!}
+        \end{align}
+        
+        Which, with a little algebra we can see that is exactly the same than before.\pn
+        
+        To see an association with a matroid, we need to develop a sense of independence that meets our expectations.
+        \textbf{[INCOMPLETE]}
+    \end{proof}
