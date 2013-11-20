@@ -1,10 +1,9 @@
-function [x, M, b, basis] = simplex(M, b, c, basis, current_value = 0, counter = 0)
-	if(counter == 0)
+function [x, M, b, basis, value] = simplex(M, b, c, basis, current_value = 0, counter = 1)
+	if(counter == 1)
 		disp("starting!")
 		disp("*******************************************");
-	else
-		printf("iteration %d\n", counter + 1);
 	endif
+	printf("iteration %d\n", counter);
 	
 	rows = size(M, 1);
 	columns = size(M, 2);
@@ -34,7 +33,9 @@ function [x, M, b, basis] = simplex(M, b, c, basis, current_value = 0, counter =
 	if(all(reduced_cost(basis_complement) >= 0))
 		disp("Optimum found.");
 		disp("Value: ");
-		disp(value);		
+		disp(value);
+		disp("Total number of iterations:");
+		disp(counter);
 		M = B_inv*M;
 		return;
 	endif
@@ -84,5 +85,5 @@ function [x, M, b, basis] = simplex(M, b, c, basis, current_value = 0, counter =
 	new_basis = sort(new_basis);
 	counter
 	disp("--------------------------------------------------");
-	[x, M, b, basis] = simplex(B_inv*M, x(basis), reduced_cost, new_basis, value, counter + 1);
+	[x, M, b, basis, value] = simplex(B_inv*M, x(basis), reduced_cost, new_basis, value, counter + 1);
 endfunction
