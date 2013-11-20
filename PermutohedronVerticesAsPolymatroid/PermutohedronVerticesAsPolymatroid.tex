@@ -70,6 +70,21 @@
         
         Which, with a little algebra we can see that is exactly the same than before.\pn
         
-        To see an association with a matroid, we need to develop a sense of independence that meets our expectations.
-        \textbf{[INCOMPLETE]}
+        To see an association with a matroid, we need to develop a sense of independence that meets our expectations.\pn
+        
+        Lets say that a $n$-tuple is independent if its coordinates consist of zeros and a subset of the last and consecutive numbers from $\{1, 2 \dots, n\}$.
+        And we do not worry about order they are given in. Lets say that a $n$-tuple $x$ contains another $n$-tuple $y$ if the difference $x-y$ doesn't contain
+        negative numbers (so here, the order of the non-zero entries does matter).\pn
+        
+        Given this definitions, the zero vector is independent and it is contained in any other independent vertex. And, converting a $0$ from one of these
+        vertices into the value of its less positive coordinet minus one, we will have a vertex that contains it (a super vertex). As we have only a finite
+        number of coordinates, this will stop, and when that happens we will have a ``super super vertex'' or lets say, a basis.\pn
+        
+        We could define a ``size'' of a vertex as the number of non-zero coordinates. And this way we have satisfied almost all the matroids' hypotesis, basis
+        are the independent vertex of maximum size, any other independent vertex is contained in a basis, if an independent vertex is contained in another one
+        there is a coordinate that could be changed to obtain a new independent vertex. But, there is something that we will not be able to define, and this is
+        the set operation ``union'', because, if two different vertex has its coordinate with value $n$ in different position any super vertex for these should have
+        its $n$ valued coordinate in the same position, but it cannot have two of them.\pn
+        
+        At least, we were able to give a ``sense'' of matroid to this polimatroid.\pn        
     \end{proof}
