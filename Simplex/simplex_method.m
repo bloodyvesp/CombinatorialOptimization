@@ -6,7 +6,7 @@ function [x, M, b, basis] = simplex_method(M, b, c, maximize = false)
 	if(maximize)
 		c = -c;
 	endif
-	disp("feasible solution found, starting to optimize optimum solution.");
+	disp("feasible solution found, starting to optimize solution.");
 	[x, M, b, basis, value] = simplex(M_f(:, 1:size(M, 2)), b_f, c, basis_f);
 	
 	if(maximize)
