@@ -1,0 +1,28 @@
+﻿\chapter{Adjacency Matrix Directed Graphs Are Unimodular}
+
+\prob{
+    Let $G = (V, E)$ be a directed graph. And let $M$ be its adjacency matrix.
+    Prove that if $A$ is a square submatrix of $M$ then $det(A) \in \{0, -1, 1\}$.
+}
+
+\begin{proof}
+    The proof of this statement is completily analog to the one of [\ref{AdjacencyMatrixOfBipartiteGraphsAreUnimodular}].\pn
+    
+    Again, the proof will be by induction of the dimension $n$ of $A$.\pn
+    
+    If $n=1$, then the statement is straightforward true as the entries of an adjacency matrix of a directed graph are always
+    $1$, $-1$ or $0$. Then its determintant will be $1$, $-1$ or $0$ respectivelly.\pn
+    
+    Now, suppose that the statement is true for $n \geq 1$ and let $A$ be a $(n+1) \times (n+1)$ submatrix of $M$.\pn
+    
+    If $A$ contains a column with only zeros, then its determinant will be $0$ and we are done.\pn
+    
+    If $A$ contains a column with only one $1$ or only one $-1$, and lets say that this $1$ (or $-1$) is in the entry $(i,j)$
+    then $\det(A)$ will be $-\det(A_{i,j})$ or $\det(A_{i,j})$ (where $A_{i,j}$ is the submatrix obtained from deleting the 
+    $i$-th row and $j$-th column of $A$). As $A_{i,j}$ is a submatrix of $M$ with dimension $n \times n$ our induction hypotesis holds
+    and then $\det(A) \in \{1, -1, 0\}$.\pn
+    
+    If neither one of these cases occur, then $A$ contains exactly a $-1$ and a $1$ in each of its columns, then, if we
+    sum all their rows, what we get is a zero $n$-tuple. In other words, there is a linear combination of the rows distinct from the
+    zero linear combination that gets the zero vector, that is, the row vectors and linearly dependent and then $\det(A) = 0$.
+\end{proof}
