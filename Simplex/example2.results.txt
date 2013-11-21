@@ -698,7 +698,7 @@ basis_f =
    1   2   3   4   6   7   8
 
 value = 0
-feasible solution found, starting to optimize optimum solution.
+feasible solution found, starting to optimize solution.
 starting!
 *******************************************
 iteration 1
@@ -924,5 +924,3 @@ optimum value:
 ans =
 
    2   3   1   0   1   2   1   0   2
-
-octave:178> diary off

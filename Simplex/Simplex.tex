@@ -1,0 +1,51 @@
+﻿\chapter{Linear programing examples}
+
+\prob{
+    Solve the two examples given as homework.
+}
+
+\begin{proof}
+    I must confess that for this excercices I was a little too lazy to solve them with my bare hands.
+    When it comes to matrix operations there is always something that makes me commit mistakes.\pn
+    
+    I may be bad at doing the math for matrix operations, but my computer is very efficient doing so,
+    and I and my computer get along  very well, so I programmed the simplex method to solve this problem.\pn
+    
+    Here you will find my implementation (which could not be elegant, but it works). You can also download my code from
+		the git repository that I mentioned in the ``Note for the readers" section. The programming language is Octave, and it should
+		run as well with its paid version MathLab.\pn
+    
+		\newpage
+    This is my simplex algorithm implementation:
+		\small
+    \lstinputlisting{Simplex/simplex.m}
+		\normalsize
+		
+		\newpage
+    This is my simplex method implementation:
+		\small
+    \lstinputlisting{Simplex/simplex_method.m}
+		\normalsize
+		
+		
+		\newpage
+		\section{example 1}
+		In the next bunch of pages, you will see the algorithm output. It will seem a little too excesive. 
+		There are a few steps that could be optimizated in order to have a smaller output but that will make
+		my algorithm to be ``less general"". I'll try to improve the output only for readiblity purposes,
+		but I cannot say that it will be ready soon.\pn
+		
+    This is the output for the example 1.
+		\small
+    \lstinputlisting{Simplex/example1.results.txt}
+		\normalsize
+		The last lines say that we reach the optimum value at \texttt{x1=2, x2=3, x3=1, x4=4} and that the optimum value is \texttt{34}.
+		
+		\newpage
+		\section{example 2}
+    This is the output for the example 2.
+		\small
+    \lstinputlisting{Simplex/example2.results.txt}
+		\normalsize
+		The last lines say that we reach the optimum value at \texttt{x1=2, x2=3, x3=1} and that the optimum value is \texttt{14}.
+\end{proof}

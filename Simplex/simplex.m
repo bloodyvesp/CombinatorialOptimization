@@ -12,7 +12,7 @@ function [x, M, b, basis, value] = simplex(M, b, c, basis, current_value = 0, co
 	current_value
 	
 	basis
-	basis_complement = setdiff(1:columns, basis)
+	basis_complement = setdiff(1:columns, basis);
 	M
 	B = M(:, basis)
 	N = M(:, basis_complement)
@@ -46,7 +46,7 @@ function [x, M, b, basis, value] = simplex(M, b, c, basis, current_value = 0, co
 		if(discriminant < 0)
 			pivote_found = true;
 			disp("enters column:");
-			j
+			disp(j);
 			break;
 		endif
 	endfor
@@ -79,11 +79,15 @@ function [x, M, b, basis, value] = simplex(M, b, c, basis, current_value = 0, co
 	
 	[minimum, i_s] = min(discriminant);
 	disp("exits column:");
-	i_s = basis(i_s)
+	i_s = basis(i_s);
+	disp(i_s);
 	new_basis = basis;
 	new_basis(new_basis == i_s) = j;
 	new_basis = sort(new_basis);
-	counter
+
+	new_M = B_inv*M;
+	new_b = x(basis);
+	new_c = reduced_cost;
 	disp("--------------------------------------------------");
-	[x, M, b, basis, value] = simplex(B_inv*M, x(basis), reduced_cost, new_basis, value, counter + 1);
+	[x, M, b, basis, value] = simplex(new_M, new_b, new_c, new_basis, value, counter + 1);
 endfunction
