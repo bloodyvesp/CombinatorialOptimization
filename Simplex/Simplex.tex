@@ -12,40 +12,75 @@
     and I and my computer get along  very well, so I programmed the simplex method to solve this problem.\pn
     
     Here you will find my implementation (which could not be elegant, but it works). You can also download my code from
-		the git repository that I mentioned in the ``Note for the readers" section. The programming language is Octave, and it should
-		run as well with its paid version MathLab.\pn
+    the git repository that I mentioned in the ``Note for the readers" section. The programming language is Octave, and it should
+    run as well with its paid version MathLab.\pn
     
-		\newpage
+    Although in this implementation I didn't use $LU$ decomposition, it gets the results for these small examples in
+    basically no time (it takes more time to print the output than to calculate the results). Maybe, for future use,
+    I'll try to refactor this version to a $LU$ decomposition version.\pn
+    
+    There are those who say that you cannot say that you understand something until you can teach it to your grandmother.
+    There are those who say that it is even harder to teach a computer.\pn
+        
+    \newpage
     This is my simplex algorithm implementation:
-		\small
+    \small
     \lstinputlisting{Simplex/simplex.m}
-		\normalsize
-		
-		\newpage
+    \normalsize
+    
+    \newpage
     This is my simplex method implementation:
-		\small
+    \small
     \lstinputlisting{Simplex/simplex_method.m}
-		\normalsize
-		
-		
-		\newpage
-		\section{example 1}
-		In the next bunch of pages, you will see the algorithm output. It will seem a little too excesive. 
-		There are a few steps that could be optimizated in order to have a smaller output but that will make
-		my algorithm to be ``less general"". I'll try to improve the output only for readiblity purposes,
-		but I cannot say that it will be ready soon.\pn
-		
+    \normalsize
+    
+    The original run of the second alorithm returned $80$ pages of results. I made a ``customized'' simplex method that works particularly
+    with this two examples. In the original method, for the phase 1, you need to add an ``imaginary'' variable for each equality to have a 
+    basic feasible solution but in these cases we are going to take advantage of the ``slack'' variables that we have previously inserted, so
+    in these particular cases, we only need to add one imaginary variable to have a basic feasible solution. This customized version returned
+    less than 30 pages of output for these two examples.\pn
+        
+    This is the simplex method customized implementation:
+    \small
+    \lstinputlisting{Simplex/simplex_method_customized.m}
+    \normalsize
+    
+    \newpage
+    \section{Example I}
+
+    
+    Here is the input for the example 1. The first four columns represent the ``true'' variables and the other fourteen the ``slack'' variables.
+    \small
+    \lstinputlisting{Simplex/example1.mat}
+    \normalsize
+    \pn
+    \pn
+    
     This is the output for the example 1.
-		\small
+    \small
     \lstinputlisting{Simplex/example1.results.txt}
-		\normalsize
-		The last lines say that we reach the optimum value at \texttt{x1=2, x2=3, x3=1, x4=4} and that the optimum value is \texttt{34}.
-		
-		\newpage
-		\section{example 2}
+    \normalsize
+    The last lines say that we reach the optimum value at \texttt{x1=2, x2=3, x3=1, x4=4} and that the optimum value is \texttt{34}.
+    It took \texttt{5} iterations for the first phase and \texttt{5} iterations for the second phase.
+    \newpage
+    
+    
+    \section{Example II}
+    Here is the input for the example 2. The first three columns represent the ``true'' variables and the other six the ``slack'' variables.
+    \small
+    \lstinputlisting{Simplex/example2.mat}
+    \normalsize
+    \pn
+    \pn
+       
     This is the output for the example 2.
-		\small
+    \small
     \lstinputlisting{Simplex/example2.results.txt}
-		\normalsize
-		The last lines say that we reach the optimum value at \texttt{x1=2, x2=3, x3=1} and that the optimum value is \texttt{14}.
+    \normalsize
+    The last lines say that we reach the optimum value at \texttt{x1=2, x2=3, x3=1} and that the optimum value is \texttt{14}.
+    It took \texttt{4} iterations for the first phase and \texttt{2} iterations for the second phase.\pn
+    
+    These two examples took 16 iterations, that is 16 matrix inversions, and more than 80 matrix multiplications, I could have gave up
+    after 10 matrix multiplications (which are far more than 500 integer sums and multiplications), so after all the pain in debugging the 
+    program it was totally worth it.
 \end{proof}
