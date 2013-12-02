@@ -13,7 +13,13 @@ A tool to iterate $n$ times the matrix tropical product.
 \lstinputlisting{ShortestPath/tropicalpower.m}
 \normalfont
 
-The Bellman-Ford algorithm using tropical product to get minimal weighted paths.
+An algorithm to get shortest paths with $n$ steps. Using the tropical ring.
+\ttfamily 
+\lstinputlisting{ShortestPath/ShortestPathWithTropicalRing.m}
+\normalfont
+
+The Bellman-Ford algorithm. It returns the tree rooted in $v$ with minimal distances and the distances. 
+It returns an error if there is a negative loop.
 \ttfamily 
 \lstinputlisting{ShortestPath/BellmanFord.m}
 \normalfont
