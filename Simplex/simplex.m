@@ -19,10 +19,8 @@ function [x, M, b, basis, value] = simplex(M, b, c, basis, current_value = 0, co
 	
 	B_inv = B^-1
 
-
 	x = zeros(1, columns);
 	x(basis) = (B_inv * b')';
-	b = x(basis);
 	
 	lambda = c(basis) * B_inv
 
